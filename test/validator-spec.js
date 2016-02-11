@@ -1,8 +1,19 @@
 var chai = require('chai');
 var expect = chai.expect;
-var validator = require('../lib/validator.js');
+var validatorWith = require('../lib/validator.js');
+var nonPositiveValidationRule = require('../lib/rules/nonPositive.js');
+var nonDivisibleValidationRule = require('../lib/rules/nonDivisible.js');
 
 describe('A Validator', function(){
+
+	var validator;
+	beforeEach(function(){
+		validator = validatorWith([
+			nonPositiveValidationRule,
+			nonDivisibleValidationRule(3, 'error.three'),
+			nonDivisibleValidationRule(5, 'error.five')
+		]);
+	});
 
 	it('will return no errors for valid number', function () {
 		expect(validator(7)).to.be.empty;
