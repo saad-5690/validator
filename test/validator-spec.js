@@ -1,9 +1,9 @@
 var chai = require('chai');
-var should = chai.should();
+var expect = chai.expect;
 var validator = require('../lib/validator.js');
 
 describe('A Validator', function(){
 	it('will return error.nonpositive for not strictly positive numbers', function() {
-		validator(0).should.to.be.deep.equal(['error.nonpositive']);
+		expect(validator(0)).to.be.deep.equal(['error.nonpositive']);
 	});
 });
