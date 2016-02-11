@@ -5,7 +5,7 @@ var validator = require('../lib/validator.js');
 describe('A Validator', function(){
 
 	it('will return no errors for valid number', function () {
-		expect(validator(3)).to.be.empty;
+		expect(validator(7)).to.be.empty;
 	});
 
 	describe('will return error.nonpositive for not strictly positive numbers:', function() {
